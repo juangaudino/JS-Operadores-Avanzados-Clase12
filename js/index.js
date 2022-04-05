@@ -12,18 +12,30 @@
 const unitarioPAI = 1200;
 const unitarioCPM = 200;
 
+const demasiaCalculada = (demasia) => {
+    return (demasia/100) +1;
+}
+const totalPapel = (demasiaCalculada, motivos) => {
+    return (demasiaCalculada * motivos * cantidad);
+}
+
+let material = "";
+let cantidad = 0;
+let precio = 0;
+
+
 
 // Declaración de funciones
 
 
-calcularPrecio = (material, cantidad) => {
+calcularPrecio = (material, totalPapel) => {
     let precio = 0;
     switch (material) {
         case 'PAI':
-            precio = cantidad * unitarioPAI;
+            precio = totalPapel * unitarioPAI;
             break;
         case 'CPM':
-            precio = cantidad * unitarioCPM;
+            precio = totalPapel * unitarioCPM;
             break;
     }
     return precio;
@@ -32,20 +44,40 @@ calcularPrecio = (material, cantidad) => {
 
 // Solicitud de datos
 
-let material = solicitarMaterial();
-let material2 = confirm("Desea agregar otro material?");
-material2 === true ? solicitarMaterial() : alert("Gracias por su compra");
 
-function solicitarMaterial() {
-    let material = prompt('Ingrese el material: PAI o CPM');
-    material === 'PAI' ? cantidad = prompt(`Ingrese la cantidad de PAI a producir`) : cantidad = prompt(`Ingrese la cantidad de CPM a producir`);
-    console.log(`El costo de producción de ${cantidad} ${material} es de ${calcularPrecio(material, cantidad)}`);
-    alert(`El costo de producción de ${cantidad} ${material} es de ${calcularPrecio(material, cantidad)}`);
-    document.write("<h2> Cotización de "+ cantidad +" "+ material +"</h2>");
-    document.write("<h4> El costo de producción es de $" + calcularPrecio(material, cantidad,) + "</h4>");
-    precio = calcularPrecio(material, cantidad);
+function papel() {
+    let papelElegido = document.getElementById("papelElegido").value;
+    cantidad = document.getElementById("cantidad").value;
+    motivos = document.getElementById("motivos").value;
+    demasia = document.getElementById("demasia").value;
+    papelElegido === "PAI" ? pai() : cpm();    
+}
+
+function pai() {
+    let material = 'PAI';
+    let demasiaCalculada = (demasia/100) +1;
+    let totalPapel = (demasiaCalculada * motivos * cantidad);
+    precio = calcularPrecio(papelElegido, totalPapel);
+    console.log(totalPapel);
+    document.getElementById("papel").innerHTML = `El costo de producción de ${totalPapel} PPL es de $${calcularPrecio(material, totalPapel)}. <br> Click para cotizar de nuevo <br>`;
+    document.getElementById("imagenMostrada").src = `./img/ppl.jpg`;
     return material;
 }
+
+function cpm() {
+    let material = 'CPM';
+    let demasiaCalculada = (demasia/100) +1;
+    let totalPapel = (demasiaCalculada * motivos * cantidad);
+    precio = calcularPrecio(papelElegido, totalPapel);
+    console.log(totalPapel);
+    document.getElementById("papel").innerHTML = `El costo de producción de ${totalPapel} CPM es de $${calcularPrecio(material, totalPapel)}. <br> Click para cotizar de nuevo <br>`;
+    document.getElementById("imagenMostrada").src = `./img/cpm.jpg`;
+    return material;
+}
+
+
+
+
 
 // Creación de objetos
 

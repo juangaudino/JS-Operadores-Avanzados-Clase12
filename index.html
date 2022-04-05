@@ -25,35 +25,62 @@ integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3Ah
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="l-container">
-                            <div class="b-game-card">
-                              <div class="b-game-card__cover" style="background-image: url()"> <img src="img/cpm.jpg" alt="CPM"> </div>
-                            </div>
-                            <div class="b-game-card">
-                                <div class="b-game-card__cover" style="background-image: url()"> <img src="img/ppl.jpg" alt="CPM"> </div>
-                            </div>
-                            <div class="b-game-card">
-                                <div class="b-game-card__cover" style="background-image: url()"> <img src="img/front.jpg" alt="CPM"> </div>
-                            </div>
-                            <div class="b-game-card">
-                                <div class="b-game-card__cover" style="background-image: url()"> <img src="img/back.jpg" alt="CPM"> </div>
-                            </div>
-                          </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="page-header">
-                                <script type="text/javascript">
-                                    document.write("<h1 class='clase1'>");
-                                </script>
+                <div class="container px-4 px-lg-5 mt-5">
+                    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                                <!-- Sale badge-->
+                                <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Durabilidad</div>
+                                <div class="badge text-white position-absolute" style="top: 2rem; right: 0.5rem">
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                </div>
+                                <!-- Product image-->
+                                <img class="card-img-top" id="imagenMostrada" src="./img/generica.jpg" alt="PAI" />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder">PAI o CPM</h5>
+                                        <!-- Product price-->
+                                        PAI = $1200 - costo x unidad
+                                        <br>
+                                        CPM = $200 - costo x unidad
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <form class="form-horizontal" id="formul">
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                        <input type="text" class="form-control" id="papelElegido" placeholder="PAI o CPM"/>
+                                    </div>
+                                    <div class="form-group">
+                                    <input type="number" class="form-control" id="cantidad" placeholder="Cantidad"/>
+                                    </div>
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                        <input type="number" class="form-control" id="motivos" placeholder="Cantidad de Motivos"/>
+                                    </div>
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                        <input type="number" class="form-control" id="demasia" placeholder="% de Demasia"/>
+                                    </div>
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" id="papel" onclick="papel()">
+                                        Cotización
+                                    </a></div>
+                                </div>
+                            
                             </div>
                         </div>
+
                     </div>
-            </div>
+                </div>
         </div>
     </div>
 <script src="js/index.js"></script>
